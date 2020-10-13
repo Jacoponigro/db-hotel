@@ -16,7 +16,7 @@ WHERE `name` LIKE 'd%';
 
 SELECT COUNT(id) 
 FROM `pagamenti` 
-WHERE `status` = "accepted"
+WHERE `status` = "accepted";
 
 SELECT MAX(price)
 FROM `pagamenti` 
@@ -24,3 +24,11 @@ WHERE `status` = "accepted"; //prezzo massimo dei pagamenti "accepted"
 
 SELECT MAX(price)
 FROM `pagamenti`; //prezzo massimo dei pagamenti
+
+SELECT * 
+FROM `ospiti` 
+WHERE `document_type` = "Driver License" AND YEAR(`date_of_birth`) = "1975";
+
+SELECT SUM(beds) 
+FROM `stanze`;
+
