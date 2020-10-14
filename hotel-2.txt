@@ -1,3 +1,5 @@
+// parte group by
+
 SELECT COUNT(`id`),YEAR(`date_of_birth`)
 FROM `ospiti` 
 GROUP BY YEAR(`date_of_birth`);
@@ -16,3 +18,12 @@ GROUP BY HOUR(`created_at`);
 
 SELECT MAX(massimo) 
 FROM (SELECT COUNT(`ospite_id`) AS massimo FROM `prenotazioni_has_ospiti` GROUP BY `ospite_id`) AS Risultato
+
+//parte join
+
+SELECT COUNT(`ospite_id`),`name`,`lastname`
+FROM `ospiti`
+JOIN `prenotazioni_has_ospiti`
+ON prenotazioni_has_ospiti.ospite_id = `ospiti`.`id`
+GROUP BY ospite_id
+HAVING COUNT(`ospite_id`) > 2
