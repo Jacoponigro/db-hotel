@@ -27,3 +27,8 @@ JOIN `prenotazioni_has_ospiti`
 ON prenotazioni_has_ospiti.ospite_id = `ospiti`.`id`
 GROUP BY ospite_id
 HAVING COUNT(`ospite_id`) > 2
+
+SELECT `name`,`lastname`,`prenotazione_id`
+FROM `ospiti` 
+JOIN `prenotazioni_has_ospiti`
+ON `prenotazioni_has_ospiti`.`ospite_id` = `ospiti`.`id`
