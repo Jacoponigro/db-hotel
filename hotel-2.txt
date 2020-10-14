@@ -1,0 +1,7 @@
+SELECT COUNT(`id`),YEAR(`date_of_birth`)
+FROM `ospiti` 
+GROUP BY YEAR(`date_of_birth`);
+
+SELECT SUM(`price`),`status`
+FROM `pagamenti` 
+GROUP BY `status`;
