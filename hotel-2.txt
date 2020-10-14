@@ -32,3 +32,13 @@ SELECT `name`,`lastname`,`prenotazione_id`
 FROM `ospiti` 
 JOIN `prenotazioni_has_ospiti`
 ON `prenotazioni_has_ospiti`.`ospite_id` = `ospiti`.`id`
+
+SELECT `ospiti`.`name`,`ospiti`.`lastname`,`price`,`prenotazioni_has_ospiti`.`created_at`,paganti.name,paganti.lastname
+FROM `prenotazioni_has_ospiti`
+JOIN `ospiti`
+ON ospiti.id = prenotazioni_has_ospiti.ospite_id
+JOIN `pagamenti`
+ON pagamenti.prenotazione_id = prenotazioni_has_ospiti.prenotazione_id
+JOIN `paganti`
+ON `paganti`.`id` = `pagamenti`.`pagante_id`
+WHERE MONTH(`prenotazioni_has_ospiti`.`created_at`) = "05" AND YEAR(`prenotazioni_has_ospiti`.`created_at`) = "2018"
