@@ -13,3 +13,6 @@ GROUP BY `stanza_id`;
 SELECT COUNT(HOUR(`created_at`)),HOUR(`created_at`)
 FROM `prenotazioni` 
 GROUP BY HOUR(`created_at`);
+
+SELECT MAX(massimo) 
+FROM (SELECT COUNT(`ospite_id`) AS massimo FROM `prenotazioni_has_ospiti` GROUP BY `ospite_id`) AS Risultato
