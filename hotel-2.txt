@@ -42,3 +42,17 @@ ON pagamenti.prenotazione_id = prenotazioni_has_ospiti.prenotazione_id
 JOIN `paganti`
 ON `paganti`.`id` = `pagamenti`.`pagante_id`
 WHERE MONTH(`prenotazioni_has_ospiti`.`created_at`) = "05" AND YEAR(`prenotazioni_has_ospiti`.`created_at`) = "2018"
+
+SELECT paganti.name, paganti.lastname, paganti.address, pagamenti.price
+FROM `pagamenti`
+JOIN `paganti`
+ON pagamenti.pagante_id = paganti.id
+JOIN `prenotazioni`
+ON pagamenti.prenotazione_id = prenotazioni.id
+WHERE pagamenti.prenotazione_id = 7;
+
+SELECT *
+FROM `stanze`
+LEFT JOIN `prenotazioni`
+ON stanze.id = prenotazioni.stanza_id
+WHERE prenotazioni.stanza_id IS NULL
